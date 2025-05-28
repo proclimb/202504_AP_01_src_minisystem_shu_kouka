@@ -11,7 +11,7 @@ if (!empty($_POST) && empty($_SESSION['input_date'])) {
         $error_message['kana'] = 'ひらがなを入れて下さい';
     }
 
-    $reg_str = "/^[A-Za-z0-9]{A-Za-z0-9_.-]*@[A-Za-z0-9_-]+.[A-Za-z0-9]+$/";
+    $reg_str = "/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@[A-Za-z0-9_-]+.[A-Za-z0-9]+$/";
 
     if (empty($_POST['email'])) {
         $error_message['email'] = 'メールアドレスが入力されていません';
