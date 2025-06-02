@@ -1,11 +1,11 @@
 <?php
 session_cache_limiter('none');
 session_start();
-if (!isset($_SESSION['input_date'])) {
+if (!isset($_SESSION['input_data'])) {
     header('Location:input.php');
     exit();
 }
-$_POST = $_SESSION['input_date'];
+$_POST = $_SESSION['input_data'];
 session_destroy();
 ?>
 <!DOCTYPE html>
