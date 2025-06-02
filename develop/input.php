@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter('none');
 session_start();
-if (!empty($_POST) && empty($_SESSION['input_date'])) {
+if (!empty($_POST) && empty($_SESSION['input_data'])) {
     if (empty($_POST['name'])) {
         $error_message['name'] = '名前が入力されていません';
     }
@@ -28,7 +28,7 @@ if (!empty($_POST) && empty($_SESSION['input_date'])) {
     }
 
     if (empty($error_message)) {
-        $_SESSION['input_date'] = $_POST;
+        $_SESSION['input_data'] = $_POST;
         header('Location:confirm.php');
         exit();
     }
@@ -59,35 +59,35 @@ session_destroy();
             <p>登録内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
             <div>
                 <div>
-                    <label>お名前<span>必要</span></label>
+                    <label>お名前<span>必須</span></label>
                     <input type="text" name="name" placeholder="例）山田太郎" value="<?php echo $_POST['name'] ?>">
                     <?php if (isset($error_message['name'])) { ?>
                         <div class="error-msg"><?php echo $error_message['name'] ?></div>
                     <?php } ?>
                 </div>
                 <div>
-                    <label>ふりがな<span>必要</span></label>
+                    <label>ふりがな<span>必須</span></label>
                     <input type="text" name="kana" placeholder="例）やまだたろう" value="<?php echo $_POST['kana'] ?>">
                     <?php if (isset($error_message['kana'])) { ?>
                         <div class="error-msg"><?php echo $error_message['kana'] ?></div>
                     <?php } ?>
                 </div>
                 <div>
-                    <label>メールアドレス<span>必要</span></label>
+                    <label>メールアドレス<span>必須</span></label>
                     <input type="text" name="email" placeholder="例）guest@example.com" value="<?php echo $_POST['email'] ?>">
                     <?php if (isset($error_message['email'])) { ?>
                         <div class="error-msg"><?php echo $error_message['email'] ?></div>
                     <?php } ?>
                 </div>
                 <div>
-                    <label>電話番号<span>必要</span></label>
+                    <label>電話番号<span>必須</span></label>
                     <input type="text" name="tel" placeholder="例）000-000-0000" value="<?php echo $_POST['tel'] ?>">
                     <?php if (isset($error_message['tel'])) { ?>
                         <div class="error-msg"><?php echo $error_message['tel'] ?></div>
                     <?php } ?>
                 </div>
                 <div>
-                    <label>性別<span>必要</span></label>
+                    <label>性別<span>必須</span></label>
                     <?php if (empty($_POST['gender'])) { ?>
                         <input type="radio" name="gender" value="男性" checked> 男性
                         <input type="radio" name="gender" value="女性"> 女性
