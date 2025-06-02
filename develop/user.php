@@ -10,7 +10,7 @@ class User
 
     public function create($data)
     {
-        $sql = "INSERT INTO user (name, kana, email, tel, gender, create_dt)
+        $sql = "INSERT INTO users (name, kana, email, tel, gender, create_dt)
                 VALUES (:name, :kana, :email, :tel, :gender, now())";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
@@ -58,7 +58,7 @@ class User
     public function delete($id)
     {
         $sql = "DELETE FROM users WHERE id = :id";
-        $stmt = $this->pdo->prepare($id);
-        return $stmt->excute([':id' => $id]);
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([':id' => $id]);
     }
 }
