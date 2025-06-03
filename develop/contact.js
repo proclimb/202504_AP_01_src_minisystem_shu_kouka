@@ -6,7 +6,7 @@ function validate() {
         errorElement(document.edit.name, "お名前が入力されていません");
         flag = false;
     }
-    if (document.edit.name.value == "") {
+    if (document.edit.kana.value == "") {
         errorElement(document.edit.kana, "ふりがなが入力されていません");
         flag = false;
     } else {
