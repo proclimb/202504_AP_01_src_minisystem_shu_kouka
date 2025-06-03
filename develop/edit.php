@@ -19,7 +19,7 @@ $_POST = $result;
     <script src="contact.js"></script>
 </head>
 
-<boby>
+<body>
     <div>
         <h1>mini System</h1>
     </div>
@@ -72,6 +72,6 @@ $_POST = $result;
             <button type="submit">削除</button>
         </form>
     </div>
-</boby>
+</body>
 
 </html>
