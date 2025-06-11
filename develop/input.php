@@ -89,15 +89,15 @@ session_destroy();
                 <div>
                     <label>性別<span>必須</span></label>
                     <?php if (empty($_POST['gender'])) { ?>
-                        <input type="radio" name="gender" value="男性" checked> 男性
-                        <input type="radio" name="gender" value="女性"> 女性
+                        <input type="radio" name="gender" value="1" checked> 男性
+                        <input type="radio" name="gender" value="2"> 女性
                     <?php } ?>
-                    <?php if ($_POST['gender'] == "男性") { ?>
-                        <input type="radio" name="gender" value="男性" checked> 男性
-                        <input type="radio" name="gender" value="女性"> 女性
-                    <?php } elseif ($_POST['gender'] == "女性") { ?>
-                        <input type="radio" name="gender" value="男性"> 男性
-                        <input type="radio" name="gender" value="女性" checked> 女性
+                    <?php if ($_POST['gender'] == "1") { ?>
+                        <input type="radio" name="gender" value="1" checked> 男性
+                        <input type="radio" name="gender" value="2"> 女性
+                    <?php } elseif ($_POST['gender'] == "2") { ?>
+                        <input type="radio" name="gender" value="1"> 男性
+                        <input type="radio" name="gender" value="2" checked> 女性
                     <?php } ?>
                 </div>
             </div>

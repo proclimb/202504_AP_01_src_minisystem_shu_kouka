@@ -52,7 +52,13 @@ session_destroy();
                 </div>
                 <div>
                     <label>性別</label>
-                    <p><?php echo $_POST['gender'] ?></p>
+                    <p><?php if ($_POST['gender'] === "1") {
+                            echo "男性";
+                        } elseif ($_POST['gender'] === "2") {
+                            echo "女性";
+                        } else {
+                            echo "性別の選択がされていません。";
+                        } ?></p>
                 </div>
             </div>
             <input type="button" value="内容を修正する" onclick="history.back(-1)">
