@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'tel'       => $_POST['tel'],
         'email'     => $_POST['email'],
         'birthday'  => $_POST['birthday'],
-        'gender'    => $_POST['gender']
+        'gender'    => $_POST['gender'],
+        'flag'      => 1 // 追加: 初期状態で有効
     ];
 }
 

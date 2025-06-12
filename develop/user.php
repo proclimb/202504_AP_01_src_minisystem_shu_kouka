@@ -18,7 +18,7 @@ class User
             ':kana'     => $data['kana'],
             ':email'    => $data['email'],
             ':tel'      => $data['tel'],
-            ':gender'   => $data['gender']
+            ':gender'   => $data['gender'],
         ]);
     }
 
@@ -40,24 +40,25 @@ class User
             ':email'    => $data['email'],
             ':tel'      => $data['tel'],
             ':gender'   => $data['gender'],
+            ':flag'     => $data['flag'],
             ':id'       => $id
         ]);
     }
 
-    public function search($keyword = '')
+    public function search($keyword)
     {
         if ($keyword) {
-            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE name LIKE ?");
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE flag = 1 AND (name LIKE :keyword OR kana LIKE :keyword OR email LIKE :keyword)");
             $stmt->execute(["%{$keyword}%"]);
         } else {
-            $stmt = $this->pdo->query("SELECT * FROM users");
+            $stmt = $this->pdo->query("SELECT * FROM users WHERE flag = 1");
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE id = :id";
+        $sql = "UPDATE users SET flag = 0 WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([':id' => $id]);
     }

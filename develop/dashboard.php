@@ -3,7 +3,7 @@ require_once 'db.php';
 require_once 'user.php';
 
 $user = new User($pdo);
-
+$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 $result = $user->search($keyword);
 ?>
 <!DOCTYPE html>

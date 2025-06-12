@@ -8,9 +8,9 @@ $data = [
     'kana'      => $_POST['kana'],
     'tel'       => $_POST['tel'],
     'email'     => $_POST['email'],
-    'gender'    => $_POST['gender']
+    'gender'    => $_POST['gender'],
+    'flag'      => 1  // ここで削除フラグを明示的に「有効」に戻す
 ];
-
 $user = new User($pdo);
 
 $user->update($id, $data);
