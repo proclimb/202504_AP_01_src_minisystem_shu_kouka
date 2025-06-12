@@ -10,8 +10,8 @@ class User
 
     public function create($data)
     {
-        $sql = "INSERT INTO users (name, kana, email, tel, gender, create_dt)
-                VALUES (:name, :kana, :email, :tel, :gender, now())";
+        $sql = "INSERT INTO users (name, kana, email, tel, gender, create_dt, flag)
+                VALUES (:name, :kana, :email, :tel, :gender, now(), :flag)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             ':name'     => $data['name'],
@@ -19,6 +19,7 @@ class User
             ':email'    => $data['email'],
             ':tel'      => $data['tel'],
             ':gender'   => $data['gender'],
+            ':flag'     => $data['flag']
         ]);
     }
 
@@ -40,7 +41,6 @@ class User
             ':email'    => $data['email'],
             ':tel'      => $data['tel'],
             ':gender'   => $data['gender'],
-            ':flag'     => $data['flag'],
             ':id'       => $id
         ]);
     }
